@@ -1,0 +1,8 @@
+{% if content %}
+  <div{{ attributes.addClass('smile_entity') }}>
+    <a href="{{ url }}"><h1>{{ content.title }}</h1></a><br/>
+    <p style="text-indent: 20px;">{{ content.body }}</p>
+    <h3>{{ content.role }}</h3>
+    <hr/>
+  </div>
+{% endif %}

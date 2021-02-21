@@ -1,0 +1,5 @@
+unpublish_node_queue.settings:
+  title: 'Configure unpublish node queue'
+  base_route_name: unpublish_node_queue.settings_queue
+  names:
+    - unpublish_node_queue.settings

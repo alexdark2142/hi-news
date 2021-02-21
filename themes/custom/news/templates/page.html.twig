@@ -1,0 +1,83 @@
+<div class="wrapper">
+  <div class="page">
+    <header class="row header">
+      <div class="logo col-md-8">
+        <div class="row">
+          <div class="d-inline hed-logo">{{ page.header }}</div>
+          <div class="d-inline site-name">
+            <span class="site-name1">{{ site_name1 }}</span>
+            <span class="site-name2">{{ site_name2 }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="right-head col-md-4">
+        <div class="row">
+          <div class="search col-md-8">
+            {{ page.search }}
+          </div>
+          <div class="user-menu col-md-3 d-flex align-items-center">
+            {{ page.user_menu }}
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <nav class="row nav">
+        <div class="col-md-12 primary-menu nav-menu">
+          {{ page.primary_menu }}
+        </div>
+      </nav>
+      {% if is_front %}
+        <div class="row last-news">
+          <div class="top-content-block col-md-12">
+            {{ page.top_content }}
+          </div>
+        </div>
+      {% endif %}
+    </main>
+    <div class="row messages">
+      <div class="col-md-12 content-messages">
+        {{ messages }}
+      </div>
+    </div>
+    <div class="row page-container">
+      <div class="col-md-8 content">
+        {{ page.content }}
+      </div>
+      <div class="col-md-4 sidebar">
+        {{ page.sidebar }}
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="row  footer-nav">
+        <div class="col-md-12 footer-first nav-menu">
+          {{ page.footer_first }}
+        </div>
+      </div>
+      <hr>
+      <div class="footer-info">
+        <div class="row footer-middle">
+          <div class="col-md-6 footer-second">
+            {{ page.footer_second }}
+          </div>
+          <div class="col-md-6 footer-third">
+            {{ page.footer_third }}
+          </div>
+        </div>
+        <div class="row footer-info">
+          <div class="col-md-6 footer-fourth">
+            {{ page.footer_fourth }}
+          </div>
+          <div class="col-md-3 footer-fifth">
+            {{ page.footer_fifth }}
+          </div>
+          <div class="col-md-3 footer-sixth">
+            {{ page.footer_sixth }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

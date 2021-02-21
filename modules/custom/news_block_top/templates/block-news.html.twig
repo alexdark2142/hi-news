@@ -1,0 +1,18 @@
+<div class="top-content d-flex justify-content-between">
+  <div class="top-img col-md-6">
+    {% if image is not null %}
+      <img src="{{ image }}" alt="image">
+    {% endif %}
+  </div>
+  <div class="top-content-text col-md-6">
+    {% if title is not null %}
+      <h1 class="title">{{ title }}</h1>
+    {% endif %}
+    {% if body is not null %}
+      <p class="text">{{ body }}</p>
+    {% endif %}
+    {% if url is not null %}
+      <a href="{{ url }}" class="btn-content">Читать далее</a>
+    {% endif %}
+  </div>
+</div>

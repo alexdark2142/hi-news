@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Main file for custom hooks and functions.
+ */
+
+use Drupal\Core\Render\Element;
+
+
+/**
+ * Implements hook_theme().
+ */
+function smile_entity_theme($existing, $type, $them, $path) {
+  return [
+    'smile_entity' => [
+      'render element' => 'elements',
+    ],
+
+    'my_block_entity' => [
+      'variables' => [
+        'items' => [],
+      ],
+      'file' => 'smile_entity.theme.inc',
+    ],
+  ];
+}
+/**
+ * Implements template_preprocess_HOOK().
+ */
+function template_preprocess_smile_entity(&$variables) {
+  // Helpful smile_entity variable for templates.
+  $variables['content'] = [];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+  /** @var ArtworkInterface $entity */
+  $entity = $variables['elements']['#smile_entity'];
+  //provide the label
+  $variables['title'] = $entity->label();
+  $variables['url'] = $entity->toUrl()->toString();
+}
+

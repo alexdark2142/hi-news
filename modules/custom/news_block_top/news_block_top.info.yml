@@ -1,0 +1,5 @@
+name: 'News block top'
+type: module
+description: 'Block with fresh news'
+package: 'News'
+core_version_requirement: ^9.0

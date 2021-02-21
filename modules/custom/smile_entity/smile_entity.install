@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * Implements hook_update_N().
+ *
+ * Adds a new role field to the database.
+ * @throws Drupal\Core\Field\BaseFieldDefinition
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+
+function smile_entity_update_8701() {
+  $field_storage_definition = BaseFieldDefinition::create('list_string')
+    ->setLabel(t('Role'))
+    ->setDescription(t('The role of the Smile entity.'))
+    ->setSettings([
+      'allowed_values' => [
+        'administrator' => 'administrator',
+        'user' => 'user',
+      ],
+    ])
+    // Set the default value of this field to 'user'.
+    ->setDefaultValue('user')
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'string',
+      'weight' => -2,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'options_select',
+      'weight' => -2,
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('role', 'smile_entity', 'smile_entity', $field_storage_definition);
+}
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_update_N().
+ *
+ * Set default value to new field role on all Smile entity.
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function smile_entity_update_8705(&$sandbox) {
+  // Initialize some variables during the first pass through.
+  if (!isset($sandbox['total'])) {
+    $nids = Drupal::entityQuery('smile_entity')->execute();
+    $sandbox['total'] = count($nids);
+    $sandbox['current'] = 0;
+  }
+
+  $nodes_per_batch = 25;
+
+  // Handle one pass through.
+  $nids = \Drupal::entityQuery('smile_entity')
+    ->range($sandbox['current'], $sandbox['current'] + $nodes_per_batch)
+    ->execute();
+
+  foreach($nids as $nid) {
+    /** @var Drupal\node\Entity\Node $node */
+    $node = \Drupal::entityTypeManager()->getStorage('smile_entity')->load($nid);
+    if (empty($node->role->value)) {
+      $node->role->value = 'administrator';
+    }
+    $node->save();
+    $sandbox['current']++;
+  }
+
+//  drupal_set_message($sandbox['current'] . ' nodes processed.');
+
+  if ($sandbox['total'] == 0) {
+    $sandbox['#finished'] = 1;
+  } else {
+    $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+  }
+
+}
+
+
+use Drupal\block\Entity\Block;
+
+/**
+ * Implements hook_install().
+ * Adding a block with list of smile entity.
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+
+function smile_entity_install() {
+
+  $block = Block::create([
+      'id'=> 'list_of_entity',
+      'plugin' => 'smile_block_entity',
+      'region' => 'sidebar_first',
+      'theme' => 'bartik',
+      'settings' => array(
+        'label' => 'Smile entity',
+      ),
+      'visibility' => array(),
+      'weight' => -5,
+    ])
+    ->save();
+}

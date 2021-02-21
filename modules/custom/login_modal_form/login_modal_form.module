@@ -1,0 +1,30 @@
+<?php
+//
+///**
+// * @file
+// * Main file for custom hooks and functions.
+// */
+//
+//use Drupal\user\Form\UserLoginForm;
+//
+//
+///**
+// * Implements hook_theme().
+// */
+//function block_login_modal_theme($existing, $type, $them, $path) {
+//  return [
+//    'block_login_modal' => [
+//      'variables' => [
+//        'title' => NULL,
+//        'body' => NULL,
+//        'image' => NULL,
+//      ],
+//    ],
+//  ];
+//}
+//
+//function template_preprocess_block_login_modal (&$variables) {
+//  $form = \Drupal::formBuilder()->getForm(UserLoginForm::class);
+//
+//  $variables['login'] = $form;
+//}

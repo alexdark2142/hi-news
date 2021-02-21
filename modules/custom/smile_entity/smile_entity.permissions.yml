@@ -1,0 +1,11 @@
+'view smile entity':
+  title: 'View Smile entity'
+'add smile entity':
+  title: 'Add Smile entity'
+'edit smile entity':
+  title: 'Edit Smile Entity'
+'delete smile entity':
+  title: 'Delete Smile entity'
+'administer smile entity':
+  title: 'Administer Smile entity'
+  restrict access: TRUE

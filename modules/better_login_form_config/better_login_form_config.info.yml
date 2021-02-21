@@ -1,0 +1,12 @@
+name: Better login Form Config
+description: 'You can configure the label, description and login button of the default user login form'
+core: 8.x
+type: module
+configure: better_login.config
+package: User Interface
+core_version_requirement: ^8 || ^9
+
+# Information added by Drupal.org packaging script on 2020-05-10
+version: '8.x-2.4'
+project: 'better_login_form_config'
+datestamp: 1589113249

@@ -1,0 +1,30 @@
+pets_owners_form.link:
+  title: 'Form  add owners pets'
+  #If menu_name is omitted, the "Tools" menu will be used.
+  menu_name: 'main'
+  route_name: pets_owners_form.add
+  weight: 1
+
+pets_owners_form.menu:
+  title: 'Menu owners pets'
+  description: 'Simplest menu'
+  expanded: TRUE
+  route_name: pets_owners_form.list
+
+pets_owners_form.menu_add:
+  title: Add user
+  parent: pets_owners_form.menu
+  route_name: pets_owners_form.add
+  weight: 1
+
+pets_owners_form.menu_admin:
+  title: Admin
+  parent: pets_owners_form.menu
+  route_name: pets_owners_form.admin
+  weight: 0
+
+pets_owners_form.menu_edit:
+  title: Edit user
+  parent: pets_owners_form.menu
+  route_name: pets_owners_form.edit
+  weight: 2

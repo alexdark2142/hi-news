@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Main file for custom hooks and functions.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function news_block_top_theme($existing, $type, $them, $path) {
+  return [
+    'block_news' => [
+      'variables' => [
+        'title' => NULL,
+        'body' => NULL,
+        'image' => NULL,
+      ],
+    ],
+  ];
+}
+
+function template_preprocess_block_news(&$variables) {
+  $nids = \Drupal::entityQuery('node')
+    ->condition('type', 'article')
+    ->condition('status', 1)
+    ->sort('created', 'DESC')
+    ->range(0,5)
+    ->execute();
+
+
+  if (!empty($nids)) {
+    $nid = array_rand($nids, 1);
+    $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+    $variables['title'] = strip_tags($node->get('title')->value);
+    $variables['body'] = strip_tags($node->get('body')->value);
+    $variables['url'] =  $node->toUrl()->toString();
+    if (!empty($node->field_image->entity)){
+      $styled_image_url = file_create_url($node->field_image->entity->getFileUri());
+      $variables['image'] = $styled_image_url;
+    }
+  }
+
+}

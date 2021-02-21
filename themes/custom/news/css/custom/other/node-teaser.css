@@ -1,0 +1,56 @@
+.teaser-content {
+  margin-bottom: 40px;
+}
+
+.title-2 span{
+  line-height: 1;
+  font-size:  45px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  transition: all .3s;
+}
+
+.title-2 span:hover {
+  color: rgb(255, 119, 51);
+}
+
+.teaser-info, .teaser-info a {
+  color: white;
+  font-size: 16px;
+  padding: 10px 0;
+}
+
+.author, .comment {
+  margin-right: 5px;
+}
+
+.content-img {
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.text-teaser {
+  font: 400 20px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 14;
+  -webkit-box-orient: vertical;
+  line-clamp: 14;
+  box-orient: vertical;
+  margin-bottom: 30px;
+}
+
+.btn-teaser a {
+  color: rgb(255, 119, 51);
+  border: 1px solid rgb(255, 119, 51);
+  padding: 14px 42.5%;
+}
+
+.btn-teaser a:hover {
+  color: white;
+}

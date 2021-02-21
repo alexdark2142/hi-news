@@ -1,0 +1,5 @@
+login_message.admin.configuration.settings_message:
+  title: 'Configure login message'
+  description: 'Configure login message form'
+  route_name:  login_message.settings_message
+  parent: system.admin_config_system

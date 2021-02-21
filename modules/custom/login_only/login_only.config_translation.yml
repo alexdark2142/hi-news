@@ -1,0 +1,5 @@
+login_only.settings:
+  title: 'Configure login only'
+  base_route_name: login_only.settings_mod
+  names:
+    - login_only.settings

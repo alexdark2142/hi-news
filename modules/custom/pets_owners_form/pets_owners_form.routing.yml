@@ -1,0 +1,31 @@
+pets_owners_form.add:
+  path: '/form/add'
+  defaults:
+    _title: 'Add entry'
+    _form: '\Drupal\smile_form\Form\SmileForm'
+  requirements:
+    _permission: 'access content'
+
+pets_owners_form.admin:
+  path: '/form/admin'
+  defaults:
+    _title: 'Admin'
+    _form: '\Drupal\smile_form\Form\SmileAdmin'
+  requirements:
+    _permission: 'access content'
+
+pets_owners_form.edit:
+  path: '/form/edit'
+  defaults:
+    _title: 'Edit'
+    _form: '\Drupal\smile_form\Form\SmileFormEdit'
+  requirements:
+    _permission: 'access content'
+
+pets_owners_form.list:
+  path: '/form/list'
+  defaults:
+    _title: 'List Users'
+    _controller: '\Drupal\pets_owners_form\Controller\SmileList::entryList'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,6 @@
+name: Smile Database Pets
+description: Database for pets owners form
+type: module
+package: SmileSchool
+core: 8.x
+core_version_requirement: ^8.0 || ^9.0

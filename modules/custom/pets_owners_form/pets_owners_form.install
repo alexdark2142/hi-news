@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the pets_owners_form module.
+ */
+
+
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ * @ingroup pets_owners_form
+ */
+function pets_owners_form_schema() {
+  $schema['pets_owners_form'] = [
+    'description' => 'Stores user.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique person ID.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 25,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User name.',
+      ],
+      'gender' => [
+        'type' => 'varchar',
+        'length' => 8,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'User gender.',
+      ],
+      'prefix' => [
+        'type' => 'varchar',
+        'length' => 4,
+        'not null' => TRUE,
+        'description' => 'User prefix.'
+      ],
+      'age' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'The age of the user in years.',
+      ],
+      'father_name' => [
+        'type' => 'varchar',
+        'length' => 25,
+        'default' => '',
+        'description' => 'Father name.',
+      ],
+      'mother_name' => [
+        'type' => 'varchar',
+        'length' => 25,
+        'default' => '',
+        'description' => 'Mother name.'
+      ],
+      'pet_name' => [
+        'type' => 'varchar',
+        'length' => 25,
+        'default' => 'No',
+        'description' => 'User`s pet name.'
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'description' => 'User`s email.'
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'name' => ['name'],
+      'gender' => ['gender'],
+      'prefix' => ['prefix'],
+      'age' => ['age'],
+      'father_name' => ['father_name'],
+      'mother_name' => ['mother_name'],
+      'pet_name' => ['pet_name'],
+      'email' => ['email'],
+    ],
+  ];
+
+
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function pets_owners_form_uninstall() {
+  # Remove table
+  \Drupal::state()->delete('pets_owners_form.pets_owners_form');
+}

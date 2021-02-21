@@ -1,0 +1,29 @@
+#block-news-local-tasks {
+  padding: 15px;
+}
+
+#block-news-local-tasks a {
+  color: white;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: all .3s;
+}
+
+#block-news-local-tasks a:hover {
+  color: rgb(255, 119, 51);
+}
+
+#block-news-page-title span{
+  color: white;
+  line-height: 1;
+  font-size:  50px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+
+
+.text-full {
+  color: rgb(232, 230, 227);
+  font: 400 20px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;
+}

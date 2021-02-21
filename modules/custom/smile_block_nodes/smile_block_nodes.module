@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Main file for custom hooks and functions.
+ */
+
+
+/**
+ * Implements hook_theme().
+ */
+function smile_block_nodes_theme($existing, $type, $them, $path) {
+  return [
+    'my_block_node' => [
+      'variables' => [
+        'items' => [
+          'title' => NULL,
+          'items' => NULL,
+        ],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements template_preprocess_HOOK() for smile_block.
+ */
+function template_preprocess_my_block_node(&$variables) {
+  $variables['title'] = 'These are the last 5 nodes of the article:';
+}

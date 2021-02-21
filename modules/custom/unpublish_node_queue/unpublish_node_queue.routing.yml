@@ -1,0 +1,15 @@
+unpublish_node_queue.settings_queue:
+  path: '/admin/config/node/configure-unpublish-queue'
+  defaults:
+    _title: 'Configure Queue'
+    _form: '\Drupal\unpublish_node_queue\Form\ConfigureQueue'
+  requirements:
+    _permission: 'administer site configuration'
+
+unpublish_node_queue.unpublish_node:
+  path: '/admin/config/node/unpublish-node'
+  defaults:
+    _title: 'Unpublish nodes by Queue'
+    _form: '\Drupal\unpublish_node_queue\Form\UnpublishNodeQueue'
+  requirements:
+    _permission: 'administer site configuration'

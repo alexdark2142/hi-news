@@ -1,0 +1,5 @@
+better_login_form.admin:
+  title: 'Better login form Configuration '
+  description: 'You can configure the label, description and login button of the default user login form.'
+  parent: system.admin_config_ui
+  route_name: better_login.config

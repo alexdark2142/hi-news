@@ -1,0 +1,19 @@
+<div class="teaser-content">
+  <div class="teaser-info">
+    <span class="author">{{ author_name }}</span>
+    <span class="comment">
+      <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" data-darkreader-inline-fill="" data-darkreader-inline-stroke="" style="--darkreader-inline-fill:none; --darkreader-inline-stroke:none;">
+          <g transform="translate(-0.500000, -6.000000)" stroke="currentColor" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke:currentColor;">
+            <path d="M1.2704918,7.74186707 C1.2704918,7.05258183 1.82434195,6.5 2.52372965,6.5 L12.017254,6.5 C12.7082379,6.5 13.2704918,7.05967568 13.2704918,7.74186707 L13.2704918,14.2581329 C13.2704918,14.941305 12.7065934,15.5 12.0157311,15.5 L11.7704918,15.5 L11.3801036,15.5 L11.2854206,15.8787322 L10.6492723,18.4233251 C10.5425153,18.8503531 10.3744715,18.8968729 10.0626203,18.5850217 L7.12404519,15.6464466 L6.97759858,15.5 L6.7704918,15.5 L2.52206951,15.5 C1.8321064,15.5 1.2704918,14.9404308 1.2704918,14.2581329 L1.2704918,7.74186707 Z">
+            </path>
+          </g>
+        </g>
+      </svg>
+      <span>{{ node.comment.0.comment_count }}</span>
+    </span>
+    <span class="post-date">{{ date }}</span>
+  </div>
+  <div><img class="content-img" src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" alt=""></div>
+  <div class="text-full">{{ node.body.0.value|striptags }}</div>
+</div>

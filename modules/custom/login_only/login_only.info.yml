@@ -1,0 +1,5 @@
+name: 'Login only'
+description: 'Anonymous user can’t access any page except Login and pages related to the password recovery.'
+type: module
+package: Practice
+core_version_requirement: ^9.0

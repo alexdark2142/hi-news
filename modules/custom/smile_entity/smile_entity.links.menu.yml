@@ -1,0 +1,12 @@
+# Define the menu links for this module
+
+entity.smile_entity.collection:
+  title: 'Smile Entity'
+  menu_name: 'main'
+  route_name: entity.smile_entity.collection
+
+smile_entity.admin.structure.settings:
+  title: 'Smile settings'
+  description: 'Configure smile entity'
+  route_name:  smile_entity.smile_settings
+  parent: system.admin_structure

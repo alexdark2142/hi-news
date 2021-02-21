@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Module file for page_example_module
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+
+function smile_form_form_alter(&$form, FormStateInterface $formState, $form_id) {
+  if ($form_id === 'search_block_form') {
+    $form['keys']['#description'] = t('Enter some text to search.');
+  }
+}

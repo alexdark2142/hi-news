@@ -1,0 +1,91 @@
+.user-form {
+  border: 2px solid #212529;
+  box-shadow: 2px 2px 3px #494f54, -2px -2px 3px #494f54, 2px -2px 3px grey;
+  line-height: 1.5;
+  padding: 15px;
+}
+
+.user-menu {
+  padding: 0;
+  width: 100%;
+}
+
+.block-user-menu img {
+  width: 28px;
+}
+
+.account, .logout,
+.login , .reg {
+  padding-left: 20px;
+}
+
+/*---Form-Login---*/
+.form-item-name label, .form-item-pass label, #fancy_login_close_button{
+  display: none;
+}
+
+
+#fancy_login_login_box {
+  opacity: 0.9;
+  padding: 30px;
+  width: calc(100% - 42px);
+  max-width: 350px;
+  min-width: 300px;
+}
+
+.fancy-login-user-login-form ul {
+  display: none;
+}
+
+/*----From-Edit-Account----*/
+
+.user-form {
+  margin: 30px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.form-item-pass input, .form-item-name input,
+#fancy_login_login_box .form-submit, .user-form input{
+  width: calc(100% - 42px);
+  max-width: 330px;
+  min-width: 280px;
+  border-radius: 8px;
+  border: solid 1px rgba(213,221,230,.6);
+  background-color: #101010;
+  padding: 14px 20px 15px;
+  margin-bottom: 12px;
+  font: 18px -apple-system,BlinkMacSystemFont,sans-serif;
+  color: #acb6bf;
+}
+
+.form-email {
+  display: block;
+}
+
+.user-form #edit-contact--2 {
+  max-width: 30px;
+  min-width: 20px;
+  width: 25px;
+}
+
+.password-strength__meter {
+  background-color: #212529;
+  margin: 10px 0;
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
+.password-strength__indicator {
+  background-color: chartreuse;
+}
+
+.user-form .form-select {
+  border: 1px solid grey;
+  background-color: #101010;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.user-form #edit-submit {
+  margin-top: 15px;
+}

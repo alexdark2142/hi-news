@@ -1,0 +1,5 @@
+login_message.settings:
+  title: 'Configure login message'
+  base_route_name: login_message.settings_message
+  names:
+    - login_message.settings

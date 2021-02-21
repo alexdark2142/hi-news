@@ -1,0 +1,8 @@
+name: Smile Block Nodes
+description: My submodule smile block nodes
+type: module
+package: SmileTest
+core: 8.x
+core_version_requirement: ^8.0 || ^9.0
+dependencies:
+  - drupal:block

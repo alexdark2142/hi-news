@@ -1,0 +1,9 @@
+name: Smile Entity
+description: 'My custom entity.'
+type: module
+core_version_requirement: ^8.0 || ^9.0
+package: Practice
+
+dependencies:
+  - drupal:options
+  - drupal:user

@@ -1,0 +1,27 @@
+name: News
+type: theme
+description: 'For news site'
+core_version_requirement: ^8.0 || ^9.0
+base theme: false
+logo: img/logo.png
+
+libraries:
+  - news/bootsrtap
+  - news/custom
+
+regions:
+  header: 'Header'
+  search: 'Search'
+  user_menu: 'User menu'
+  primary_menu: 'Primary menu'
+  top_content: 'Top content'
+  messages: 'Messages'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_fourth: 'Footer fourth'
+  footer_fifth: 'Footer fifth'
+  footer_sixth: 'Footer sixth'
+

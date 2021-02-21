@@ -1,0 +1,11 @@
+unpublish_node_queue.admin.structure.unpublish_node:
+  title: 'Unpublish nodes'
+  description: 'Unpublish nodes by queue'
+  route_name:  unpublish_node_queue.unpublish_node
+  parent: system.admin_structure
+
+unpublish_node_queue.admin.structure.settings_queue:
+  title: 'Configure Unpublish nodes'
+  description: 'Configure Unpublish nodes form'
+  route_name:  unpublish_node_queue.settings_queue
+  parent: unpublish_node_queue.admin.structure.unpublish_node

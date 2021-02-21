@@ -1,0 +1,78 @@
+/*----top-form----*/
+.search-block-form {
+  background-color: #0c0d0e;
+  border: 1px solid #23394e;
+  box-shadow: 1px 1px 1px white;
+  border-radius: 63px;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  padding: 8px 20px 9px 20px;
+  width: 271px;
+  height: 36px;
+  transition: all .3s;
+  -webkit-appearance: none;
+  font: 400 16px/19px -apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+.form-search {
+  background-color: 	#0c0d0e;
+  width: 205px;
+  flex: 1 0 auto;
+}
+
+.search-btn {
+  background: 	#101010;
+  color: grey;
+  flex: 1 0 auto;
+}
+
+.form-actions, .form-item {
+  display: inline;
+}
+/*-----------------------------------*/
+
+h1 {
+  margin: 0 0 28px;
+  font: 700 35px/1 -apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+h2 {
+  font-size: 20px;
+  color: #008800;
+}
+
+h3, h3 a  {
+  font: 500 22px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+
+.search-form label {
+  font: 400 25px/1 -apple-system,BlinkMacSystemFont,sans-serif;
+  margin: 0 15px 10px 0;
+}
+
+.search-form input {
+  background-color: #0c0d0e;
+  border: 1px solid #23394e;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 7px 10px ;
+  color: grey;
+}
+
+.search-form a {
+  font: 400 16px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+.search-form a:hover, h3 a:hover {
+  color: orange;
+}
+
+.data-drupal-messages {
+  color: red;
+}
+
+#block-news-content ul {
+  font: 400 16px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;
+}

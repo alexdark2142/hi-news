@@ -1,0 +1,30 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+function news_preprocess_page(array &$variables) {
+  $variables['site_name1'] = 'Hi';
+  $variables['site_name2'] = '-News.ru';
+}
+
+function news_form_search_block_form_alter(&$form, &$form_state) {
+  $form['keys']['#attributes']['placeholder'][] = t('Поиск');
+  $form['actions']['submit']['#value'] = html_entity_decode('&#xf002;');
+  $form['actions']['submit']['#attributes']['class'][] = 'fas fa-search search-btn';
+}
+
+/**
+ * Implements hook_form_alter().
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function news_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'fancy_login_user_login_form' ) {
+    // Add placeholders.
+    $form['name']['#attributes']['placeholder'] = t('Логин');
+    $form['pass']['#attributes']['placeholder'] = t('Пароль');
+    $form['actions']['submit']['#value'] = t('Вход');
+  }
+}
+

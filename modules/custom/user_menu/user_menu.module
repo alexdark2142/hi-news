@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Main file for custom hooks and functions.
+ */
+
+use Drupal\Core\Url;
+use Drupal\user\Form\UserLoginForm;
+
+
+/**
+ * Implements hook_theme().
+ */
+function user_menu_theme($existing, $type, $them, $path) {
+  return [
+    'user_menu' => [
+      'variables' => [
+        'login' => NULL,
+        'logout' => NULL,
+        'reg' => NULL,
+        'current_user' => NULL,
+      ],
+    ],
+  ];
+}
+
+function template_preprocess_user_menu(&$variables) {
+  $current_user = \Drupal::currentUser()->isAnonymous();
+  $variables['current_user'] = $current_user;
+  $variables['login'] = Url::fromRoute('user.login');
+  $variables['logout'] = Url::fromRoute('user.logout');;
+  $variables['reg'] = Url::fromRoute('user.register');
+}

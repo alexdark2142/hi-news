@@ -1,0 +1,21 @@
+bootsrtap:
+  header: true
+  css:
+    theme:
+      css/bootstrap.css: {}
+  js:
+    js/bootstrap.js: {}
+  dependencies:
+    - core/jquery
+
+custom:
+  css:
+    theme:
+      css/custom/zero-style.css: {}
+      css/custom/base-style.css: {}
+      css/custom/other/node.css: {}
+      css/custom/other/node-teaser.css: {}
+      css/custom/other/block-news.css: {}
+      css/custom/other/user-menu.css: {}
+      css/custom/other/search-form.css: {}
+      css/custom/other/messages.css: {}

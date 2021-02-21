@@ -1,0 +1,37 @@
+<?php
+/**
+ * Implements hook_mail().
+ *
+ */
+function smile_email_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'smile':
+      $message['from'] = $params['from'];
+      $message['subject'] = $params['subject'];
+      $message['body'][] = check_markup($params['message'], 'full_html');
+      dpm($message['from']);
+      break;
+  }
+}
+
+/**
+ * @param $variables
+ * Implements hook_preprocess_html()
+ */
+
+//function smile_email_preprocess_html(&$variables){
+//
+//  $to = 'user@gmail.com';
+//  $from = \Drupal::config('system.site')->get('mail');
+//  $lang = 'ru';
+//  $subject = 'Test send email from swiftmailer';
+//  $body = '<p style="background-color: #0c97ed">Destroy for creation</p>';
+//
+//  $params = array(
+//    'subject' => $subject,
+//    'message' => $body,
+//  );
+//
+//  Drupal :: service ('plugin.manager.mail') -> mail('smile_email', 'smile', $to, $lang, $params, $from, TRUE);
+//
+//}

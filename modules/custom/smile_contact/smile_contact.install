@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the smile_contact module.
+ */
+
+
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ * @ingroup smile_contact
+ */
+function smile_contact_schema() {
+  $schema['smile_contact'] = [
+    'description' => 'Stores user.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique person ID.',
+      ],
+      'user_id' => [
+        'type' => 'varchar',
+        'length' => 10,
+        'default' => 'Anonymous',
+        'description' => 'User ID.',
+      ],
+      'phone' => [
+        'type' => 'varchar',
+        'length' => 17,
+        'not null' => TRUE,
+        'description' => 'User`s phone number.',
+      ],
+      'message' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Message.',
+      ],
+      'category' => [
+        'type' => 'varchar',
+        'length' => 20,
+        'not null' => TRUE,
+        'description' => 'Submission category.'
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'description' => 'User`s email.'
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'user_id' => ['user_id'],
+      'phone' => ['phone'],
+      'message' => ['message'],
+      'category' => ['category'],
+      'email' => ['email'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function smile_contact_uninstall() {
+  # Remove table
+  \Drupal::state()->delete('smile_contact.smile_contact');
+}

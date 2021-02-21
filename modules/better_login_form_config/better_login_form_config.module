@@ -1,0 +1,169 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\better_login_form_config.
+ */
+
+use Symfony\Cmf\Component\Routing\RouteObjectInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_alter().
+ */
+function better_login_form_config_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $myConfig = \Drupal::config('better_login_form_config.settings');
+  if ($form_id == 'user_login_form') {
+    $form['name']['#title'] = $myConfig->get('username_label');
+    $form['name']['#description'] = $myConfig->get('username_description');
+    $form['pass']['#title'] = $myConfig->get('password_label');
+    $form['pass']['#description'] = $myConfig->get('password_description');
+    if ($myConfig->get('form_title')) {
+      $request = \Drupal::request();
+      if ($route = $request->attributes->get(RouteObjectInterface::ROUTE_OBJECT)) {
+        $route->setDefault('_title', $myConfig->get('form_title'));
+      }
+    }
+    $form['actions']['submit']['#value'] = $myConfig->get('login_button');
+  }
+  if ($form_id == 'user_login_form' || $form_id == 'user_register_form' || $form_id == 'user_pass') {
+    $form['#attached']['library'][] = 'better_login_form_config/better_login_form_config_css';
+    $form['#cache']['tags'][] = 'config:better_login_form_config.settings';
+  }
+  if ($form_id == 'user_pass') {
+    $form['name']['#title'] = $myConfig->get('forgot_form_username');
+    $form['name']['#description'] = $myConfig->get('forgot_form_username_desc');
+    $form['actions']['submit']['#value'] = $myConfig->get('forgot_form_button');
+  }
+  if ($form_id == 'user_register_form') {
+    $form['account']['mail']['#description'] = $myConfig->get('register_mail_desc');
+    $form['account']['mail']['#title'] = $myConfig->get('register_form_mail');
+    $form['account']['name']['#description'] = $myConfig->get('register_mail_desc');
+    $form['account']['name']['#title'] = $myConfig->get('register_form_name');
+    $form['actions']['submit']['#value'] = $myConfig->get('register_form_button');
+  }
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function better_login_form_config_theme() {
+  $myConfig = \Drupal::config('better_login_form_config.settings');
+  $theme['page__user__login'] = [
+    'preprocess functions' => ['better_login_form_config_preprocess_better_login_form_config'],
+  ];
+  $theme['page__user__register'] = [
+    'preprocess functions' => ['better_login_form_config_preprocess_better_login_form_config'],
+  ];
+  $theme['page__user__password'] = [
+    'preprocess functions' => ['better_login_form_config_preprocess_better_login_form_config'],
+  ];
+  $theme['page__user__reset'] = [
+    'preprocess functions' => ['better_login_form_config_preprocess_better_login_form_config'],
+  ];
+  // Exclude register template.
+  if (!empty($myConfig->get('include_regi_template'))) {
+    unset($theme['page__user__register']);
+  }
+  // Exclude login template.
+  if (!empty($myConfig->get('include_login'))) {
+    unset($theme['page__user__login']);
+  }
+  // Exclude forgot password template.
+  if (!empty($myConfig->get('include_forgot_template'))) {
+    unset($theme['page__user__password']);
+  }
+  return $theme;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function better_login_form_config_preprocess_better_login_form_config(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $patterns = "/user/login\n/user/password\n/user/register";
+  $match = \Drupal::service('path.matcher')->matchPath($current_path, $patterns);
+  if ($match) {
+    $variables['site_name'] = \Drupal::config('system.site')->get('name');
+    $variables['logo'] = theme_get_setting('logo.url');
+
+    $myConfig = \Drupal::config('better_login_form_config.settings');
+
+    $variables['forgot_password'] = $myConfig->get('forgot_password');
+    $variables['back_to_homes'] = $myConfig->get('back_to_home');
+    $variables['login_page_link'] = $myConfig->get('login_page_link');
+    // Register account link display if visitors have permission to
+    // register their accounts.
+    $register_url = Url::fromRoute('user.register');
+    switch ($current_path) {
+      case '/user/login':
+        $variables['title'] = $myConfig->get('form_title');
+        if ($register_url->access()) {
+          $variables['create_accounts'] = $myConfig->get('create_account');
+        }
+
+        break;
+
+      case '/user/password':
+        $title_forgot = $myConfig->get('forgot_form_title');
+        $variables['title'] = $title_forgot;
+        if ($register_url->access()) {
+          $variables['create_accounts'] = $myConfig->get('create_account');
+        }
+
+        break;
+
+      case '/user/register':
+        $regi_title = $myConfig->get('register_form_title');
+        $variables['title'] = $regi_title;
+
+        break;
+    }
+    $variables['#cache']['contexts'][] = 'route';
+    $variables['page']['#cache']['contexts'][] = 'route';
+
+  }
+}
+
+/**
+ * Set tab titles.
+ *
+ * Implements hook_menu_local_tasks_alter().
+ */
+function better_login_form_config_menu_local_tasks_alter(&$data, $route_name) {
+  $myConfig = \Drupal::config('better_login_form_config.settings');
+  if (in_array($route_name, ['user.login', 'user.pass', 'user.register'])) {
+    $tabs = $data['tabs'][0];
+    foreach ($tabs as $route => $tab) {
+      if ($route == 'user.register') {
+        $data['tabs'][0][$route]['#link']['title'] = $myConfig->get('register_form_tab');
+      }
+      if ($route == 'user.login') {
+        $data['tabs'][0][$route]['#link']['title'] = $myConfig->get('form_tab');
+      }
+      if ($route == 'user.pass') {
+        $data['tabs'][0][$route]['#link']['title'] = $myConfig->get('forgot_form_tab');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function better_login_form_config_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the better_login_form_config module.
+    case 'help.page.better_login_form_config':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('You can configure the label, description and login button of the default user login form.') . '</p>';
+      return $output;
+
+  }
+
+}

@@ -1,0 +1,17 @@
+<div class="block-user-menu d-flex justify-content-center">
+  {% if current_user  %}
+    <div class="login" >
+      <a href="{{ login }}"><img src="/modules/custom/user_menu/img/user_menu/login.png" alt="login"></a>
+    </div>
+    <div class="reg" >
+      <a href="{{ reg }}"><img src="/modules/custom/user_menu/img/user_menu/reg.png" alt="reg"></a>
+    </div>
+  {% else %}
+    <div class="account">
+      <a href="{{ login }}"><img src="/modules/custom/user_menu/img/user_menu/account.png" alt="account"></a>
+    </div>
+    <div class="logout">
+      <a href="{{ logout }}"><img src="/modules/custom/user_menu/img/user_menu/logout.png" alt="logout"></a>
+    </div>
+  {% endif %}
+</div>

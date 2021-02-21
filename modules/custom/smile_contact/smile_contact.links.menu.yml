@@ -1,0 +1,11 @@
+form.smile_contact.contact:
+  title: 'Contact'
+  menu_name: 'main'
+  route_name: smile_contact.contact_page
+  weight: -1
+
+form.smile_contact.list:
+  title: 'List user`s message'
+  menu_name: 'main'
+  route_name: smile_contact.admin
+  weight: -2
