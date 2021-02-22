@@ -1,5 +1,0 @@
-smile_ajax.link:
-  title: 'My Form Ajax'
-  menu_name: 'main'
-  route_name: smile_ajax.based_page
-  weight: 2

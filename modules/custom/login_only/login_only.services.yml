@@ -1,5 +1,0 @@
-services:
-  login_only.login_only_subscriber:
-    class: Drupal\login_only\EventSubscriber\LoginOnly
-    tags:
-      - { name: event_subscriber }

@@ -1,5 +1,0 @@
-better_login_form_config_css:
-  version: 1.x
-  css:
-    theme:
-      css/better_login_form_config.css: {}

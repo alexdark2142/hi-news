@@ -1,7 +1,0 @@
-page_test.test:
-  path: '/page/test'
-  defaults:
-    _title: 'Test'
-    _controller: '\Drupal\page\Controller\Page::build'
-  requirements:
-    _permission: 'access content'

@@ -1,5 +1,0 @@
-logyn_only.admin.structure.settings_queue:
-  title: 'Configure Login only'
-  description: 'Configure Login only'
-  route_name:  login_only.settings_mod
-  parent: system.admin_structure

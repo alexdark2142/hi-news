@@ -1,5 +1,0 @@
-name: Page
-type: module
-description: "Test page"
-core_version_requirement: ^9.0
-package: Test

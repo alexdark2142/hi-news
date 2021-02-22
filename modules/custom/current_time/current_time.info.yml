@@ -1,4 +1,0 @@
-name: 'Current time'
-type: module
-description: 'Show current time'
-core_version_requirement: ^9.0

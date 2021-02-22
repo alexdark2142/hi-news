@@ -1,5 +1,0 @@
-name: 'Smile Contact'
-type: module
-description: 'Contact page, where users are able to leave their contact submissions.'
-package: Practice
-core_version_requirement: ^9.0

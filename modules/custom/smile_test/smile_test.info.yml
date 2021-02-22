@@ -1,6 +1,0 @@
-name: Smile Test
-description: Custom module for Drupal 8-9
-type: module
-package: SmileSchool
-core: 8.x
-core_version_requirement: ^8.0 || ^9.0

@@ -1,8 +1,0 @@
-login_only.settings_mod:
-  path: '/admin/config/login-only/access'
-  defaults:
-    _title: 'Configure Users access'
-    _form: '\Drupal\login_only\Form\ConfigureUserAccess'
-  requirements:
-    _permission: 'administer site configuration'
-

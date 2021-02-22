@@ -1,7 +1,0 @@
-login_message.settings_message:
-  path: '/admin/config/message/configure-login-message'
-  defaults:
-    _title: 'Configure login message'
-    _form: '\Drupal\login_message\Form\ConfLoginMessage'
-  requirements:
-    _permission: 'administer site configuration'
